@@ -1,0 +1,23 @@
+URxvt.scrollBar: false
+URxvt*font: xft:Inconsolata:size=11:antialias=true
+URxvt.letterSpace: -1
+! Nova color scheme, taken from https://trevordmiller.com/projects/nova
+urxvt*foreground: #899BA6
+urxvt*background: #3C4C55
+urxvt*cursorColor: #d0d0d0
+urxvt*color15: #E6EEF3
+urxvt*color14: #7FC1CA
+urxvt*color13: #D18EC2
+urxvt*color12: #83AFE5
+urxvt*color11: #DADA93
+urxvt*color10: #A8CE93
+urxvt*color9: #F2C38F
+urxvt*color8: #899BA6
+urxvt*color7: #C5D4DD
+urxvt*color6: #7FC1CA
+urxvt*color5: #9A93E1
+urxvt*color4: #83AFE5
+urxvt*color3: #DADA93
+urxvt*color2: #A8CE93
+urxvt*color1: #DF8C8C
+urxvt*color0: #3C4C55
