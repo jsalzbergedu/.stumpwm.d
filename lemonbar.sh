@@ -50,6 +50,10 @@ function Wifi {
 	     STRICON=$(Icon WIFI_MIN)
 	 fi
     fi
+    if [ "$NETWORK" = "" ]
+    then
+	STRICON=""
+    fi
     echo -n "$STRICON $NETWORK"
 }
 

@@ -5,4 +5,5 @@
 (define-key *root-map* (kbd "c") "exec urxvtc")
 (define-key *root-map* (kbd "C-c") "exec urxvtc")
 (define-key *root-map* (kbd "e") "exec urxvtc -e emacsclient -nw")
-(define-key *root-map* (kbd "C-e") "exec urxvtc -e emacsclient -nw")
+(define-key *root-map* (kbd "C-e") "exec emacsclient -c")
+(define-key *root-map* (kbd "C-M-d") "exec systemctl poweroff")

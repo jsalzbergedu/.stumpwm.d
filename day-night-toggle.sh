@@ -1,5 +1,5 @@
 function Day {
-    for i in {1..20}
+    for i in {1..22}
     do
 	hsetroot -center ~/.stumpwm.d/data/frames/${i}.png
 	sleep 0.1
@@ -7,7 +7,7 @@ function Day {
 }
 
 function Night {
-    for i in {20..1}
+    for i in {22..1}
     do
 	hsetroot -center ~/.stumpwm.d/data/frames/${i}.png
 	sleep 0.1
