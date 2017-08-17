@@ -2,7 +2,7 @@ function Day {
     for i in {1..22}
     do
 	hsetroot -center ~/.stumpwm.d/data/frames/${i}.png
-	sleep 0.1
+	sleep 0.05
     done
 }
 
@@ -10,7 +10,7 @@ function Night {
     for i in {22..1}
     do
 	hsetroot -center ~/.stumpwm.d/data/frames/${i}.png
-	sleep 0.1
+	sleep 0.05
     done
 }
 

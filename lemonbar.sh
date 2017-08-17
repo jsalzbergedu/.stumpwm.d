@@ -20,6 +20,7 @@ function Icon {
     WIFI_FULL="\ue045"
     WIFI_MID="\ue046"
     WIFI_MIN="\ue048"
+    POWER_OFF="\u25ef"
     icon=$1;
     case "$icon" in
 	"WIFI_FULL")
@@ -30,6 +31,9 @@ function Icon {
 	    ;;
 	"WIFI_MIN")
 	    echo -e "$WIFI_MIN"
+	    ;;
+	"POWER_OFF")
+	    echo -e "$POWER_OFF"
 	    ;;
 	*)
 	    echo -n "Icon Not Found"
@@ -60,6 +64,6 @@ function Wifi {
 # Print the clock
 
 while true; do
-        echo "%{c}%{F#899BA6}%{B#C03C4C55} $(Clock) $(Wifi) %{F-}%{B-} "
+        echo "%{c}%{F#899BA6}%{B#C03C4C55} $(Clock) $(Wifi) %{A:systemctl poweroff:}$(Icon POWER_OFF) %{A}%{F-}%{B-}"
         sleep 1
 done

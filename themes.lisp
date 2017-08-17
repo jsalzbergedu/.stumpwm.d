@@ -35,8 +35,8 @@
                      "#ff6a6a"      ; 2 green
                      "#dada93"      ; 3 yellow
                      "#83afe5"      ; 4 blue
-                     "#9a93e1"      ; 5 magenta
                      "#7fc1ca"      ; 6 cyan
+                     "#9a93e1"      ; 5 magenta
                      "#899ba6"))    ; 7 white
 (update-color-map (current-screen))
 (set-fg-color "#899ba6")
