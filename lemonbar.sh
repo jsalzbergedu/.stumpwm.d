@@ -44,6 +44,11 @@ function Icon {
 function Wifi {
     NETWORK=$(iw wlp4s0 link | grep 'SSID' | sed 's/SSID: //' | sed 's/\t//')
     STR=$(iw wlp4s0 link | grep 'signal' | sed 's/signal: //' | sed 's/ dBm//' | sed 's/\t//')
+    if [ "x$STR" = "x" ]
+    then
+	NETWORK=$(iw wlan0 link | grep 'SSID' | sed 's/SSID: //' | sed 's/\t//')
+	STR=$(iw wlan0 link | grep 'signal' | sed 's/signal: //' | sed 's/ dBm//' | sed 's/\t//')
+    fi
     if (($STR >= -55))
     then
 	STRICON=$(Icon WIFI_FULL)
@@ -59,6 +64,13 @@ function Wifi {
 	STRICON=""
     fi
     echo -n "$STRICON $NETWORK"
+}
+
+function Battery {
+    if [ "$(hostname)" = "jacobs-pc" ]
+    then
+	BATLIST="$(upower -e | grep 'BAT')"
+    fi
 }
 
 # Print the clock
