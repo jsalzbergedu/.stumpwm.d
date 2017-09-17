@@ -5,6 +5,13 @@ echo "%{c}%{F#899BA6}%{B#C03C4C55} Welcome! %{F-}%{B-}"
 sleep 2
 
 # Define the clock
+function Emacs {
+    if [ $(emacsclient -e "(identity 4)") = "4" ]
+    then
+	Icon "EMACS"
+    fi
+}
+
 function Clock {
     TIME=$(date "+%T" | awk '{hrmin = substr($0, 0, 5)}; END {print hrmin}')
     HOUR=$(date "+%T" | awk '{hrmin = substr($0, 0, 2)}; END {print hrmin}')
@@ -21,6 +28,7 @@ function Icon {
     WIFI_MID="\ue046"
     WIFI_MIN="\ue048"
     POWER_OFF="\u25ef"
+    EMACS="\u0511"
     icon=$1;
     case "$icon" in
 	"WIFI_FULL")
@@ -34,6 +42,9 @@ function Icon {
 	    ;;
 	"POWER_OFF")
 	    echo -e "$POWER_OFF"
+	    ;;
+	"EMACS")
+	    echo -e "$EMACS"
 	    ;;
 	*)
 	    echo -n "Icon Not Found"
@@ -76,6 +87,6 @@ function Battery {
 # Print the clock
 
 while true; do
-        echo "%{c}%{F#899BA6}%{B#C03C4C55} $(Clock) $(Wifi) %{A:systemctl poweroff:}$(Icon POWER_OFF) %{A}%{F-}%{B-}"
+        echo "%{c}%{F#899BA6}%{B#C03C4C55} $(Clock) $(Wifi) $(Emacs) %{A:systemctl poweroff:}$(Icon POWER_OFF) %{A}%{F-}%{B-}"
         sleep 1
 done

@@ -10,3 +10,4 @@ pushd /home/jacob/.stumpwm.d/ > /dev/null
 # compton-trans -w $MESSAGE_WINDOW -o 90
 /home/jacob/.stumpwm.d/day-night-toggle.sh "INIT" & disown
 /usr/bin/emacs --daemon
+setxkbmap -option "caps:swapescape"

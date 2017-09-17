@@ -21,3 +21,6 @@ urxvt*color3: #DADA93
 urxvt*color2: #A8CE93
 urxvt*color1: #DF8C8C
 urxvt*color0: #3C4C55
+! Below stolen from StackOverflow https://unix.stackexchange.com/questions/294337/rebinding-ctrl-alt-cv-to-ctrl-shift-cv-in-urxvt-9-20/294552#294552
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard

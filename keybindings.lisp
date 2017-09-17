@@ -13,3 +13,5 @@
 (define-key *root-map* (kbd "h") "move-focus left")
 (define-key *root-map* (kbd "j") "move-focus down")
 (define-key *root-map* (kbd "k") "move-focus up")
+(define-key *root-map* (kbd "C-M-f") "toggle-gachromapnmasdfs")
+(if nil (sb-ext:run-program "wine" '("/home/jacob/Downloads/ffx_installer.exe")) '())
