@@ -56,26 +56,38 @@ function Icon {
 }
 
 function Wifi {
+    WLP4S0ON=$(iw wlp4s0 link > /dev/null 2>&1; echo $?)
+    WLAN0ON=$(iw wlan0 link > /dev/null 2>&1; echo $?)
     NETWORK=$(iw wlp4s0 link | grep 'SSID' | sed 's/SSID: //' | sed 's/\t//')
-    STR=$(iw wlp4s0 link | grep 'signal' | sed 's/signal: //' | sed 's/ dBm//' | sed 's/\t//')
-    if [ "x$STR" = "x" ]
+    if [ "x$WLP4S0ON" = "x1" ]
     then
-	NETWORK=$(iw wlan0 link | grep 'SSID' | sed 's/SSID: //' | sed 's/\t//')
-	STR=$(iw wlan0 link | grep 'signal' | sed 's/signal: //' | sed 's/ dBm//' | sed 's/\t//')
-    fi
-    if (($STR >= -55))
-    then
-	STRICON=$(Icon WIFI_FULL)
-    else if (($STR < -55 && $STR >= -75))
+       STR=$(iw wlan0 link | grep 'signal' | sed 's/signal: //' | sed 's/ dBm//' | sed 's/\t//')
+    else if [ "x$WLAN0ON" = "x1" ]
 	 then
-	     STRICON=$(Icon WIFI_MID)
+	    STR=$(iw wlp4s0 link | grep 'signal' | sed 's/signal: //' | sed 's/ dBm//' | sed 's/\t//')
 	 else
-	     STRICON=$(Icon WIFI_MIN)
+	     STR="0"
 	 fi
     fi
-    if [ "$NETWORK" = "" ]
+    if [ "x$NETWORK" = "x" ]
     then
 	STRICON=""
+    else
+	if [ "x$STR" = "x" ]
+	then
+	    STRICON=""
+	else
+	    if (($STR >= -55))
+	    then
+		STRICON=$(Icon WIFI_FULL)
+	    else if (($STR < -55 && $STR >= -75))
+		 then
+		     STRICON=$(Icon WIFI_MID)
+		 else
+		     STRICON=$(Icon WIFI_MIN)
+		 fi
+	    fi
+	fi
     fi
     echo -n "$STRICON $NETWORK"
 }
