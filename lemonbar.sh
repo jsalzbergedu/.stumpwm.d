@@ -6,9 +6,12 @@ sleep 2
 
 # Define the clock
 function Emacs {
-    if [ $(emacsclient -e "(identity 4)") = "4" ]
+    STATUS=$(emacsclient -e '(identity t)' > /dev/null 2>&1; echo $?)
+    if [ "$STATUS" = "0" ]
     then
 	Icon "EMACS"
+    else
+	echo "$(Icon 'EMACS')!"
     fi
 }
 
@@ -87,6 +90,6 @@ function Battery {
 # Print the clock
 
 while true; do
-        echo "%{c}%{F#899BA6}%{B#C03C4C55} $(Clock) $(Wifi) $(Emacs) %{A:systemctl poweroff:}$(Icon POWER_OFF) %{A}%{F-}%{B-}"
+        echo "%{c}%{F#899BA6}%{B#C03C4C55} $(Clock) $(Wifi) %{A:emacs --daemon:}$(Emacs)%{A} %{A:systemctl poweroff:}$(Icon POWER_OFF) %{A}%{F-}%{B-}"
         sleep 1
 done
