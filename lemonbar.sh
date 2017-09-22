@@ -55,20 +55,20 @@ function Icon {
     esac
 }
 
-function Wifi {
-    WLP4S0ON=$(iw wlp4s0 link > /dev/null 2>&1; echo $?)
-    WLAN0ON=$(iw wlan0 link > /dev/null 2>&1; echo $?)
-    NETWORK=$(iw wlp4s0 link | grep 'SSID' | sed 's/SSID: //' | sed 's/\t//')
-    if [ "x$WLP4S0ON" = "x1" ]
+function WifiStr {
+    if [ "$(iw wlp4s0 link > /dev/null 2>&1; echo $?)" = "0" ]
     then
-       STR=$(iw wlan0 link | grep 'signal' | sed 's/signal: //' | sed 's/ dBm//' | sed 's/\t//')
-    else if [ "x$WLAN0ON" = "x1" ]
-	 then
-	    STR=$(iw wlp4s0 link | grep 'signal' | sed 's/signal: //' | sed 's/ dBm//' | sed 's/\t//')
-	 else
-	     STR="0"
-	 fi
+	echo "$(iw wlp4s0 link | grep 'signal' | sed 's/signal: //' | sed 's/ dBm//' | sed 's/\t//')"
+    elif [ "$(iw wlan0 link > /dev/null 2>&1; echo $?)" = "0" ]
+    then
+	echo "$(iw wlan0 link | grep 'signal' | sed 's/signal: //' | sed 's/ dBm//' | sed 's/\t//')"
+    else
+	echo "0"
     fi
+}
+
+function Wifi {
+    STR="$(WifiStr)"
     if [ "x$NETWORK" = "x" ]
     then
 	STRICON=""
