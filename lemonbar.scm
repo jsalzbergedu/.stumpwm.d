@@ -1,13 +1,13 @@
+(print "%{c}%{F#899BA6}%{B#C03C4C55} Welcome! %{F-}%{B-}")
 (import chicken scheme)
 (use srfi-18)
 (use posix)
-(define (welcome)
-  (begin
-    (print "%{c}%{F#899BA6}%{B#C03C4C55} Welcome! %{F-}%{B-}")
-    (thread-sleep! 2)))
 
 (define (getinput program args)
-  (receive (in out pid) (process program args) (read in)))
+  (receive (in out pid) (process program args) (let ((input (read in)))
+						 (close-input-port in)
+						 (close-output-port out)
+						 input)))
 
 (define (icon glyph)
   (let ((symbols
@@ -40,7 +40,7 @@
 
 (define (wifi)
   (let* ((str (wifi-str)) (strn (car (wifi-str))) (strt (cdr (wifi-str))))
-    (if strt
+    (if (and strt (number? strn))
 	(cond ((>= strn -55)
 	       (icon "wifi-max"))
 	      ((and (< strn -55) (>= strn -75))
@@ -59,7 +59,7 @@
 
 (define (ssid)
   (let* ((ssid (ssid-pred)) (ssids (car (ssid-pred))) (ssidt (cdr (ssid-pred))))
-    (if ssidt
+    (if (and ssidt (string? ssids))
 	ssids
 	" ")))
 
@@ -67,7 +67,9 @@
   (icon "poweroff"))
 
 (define (main)
-  (display (string-append "%{c}%{F#899BA6}%{B#C03C4C55} " (clock) " " (ssid) " " (wifi) " %{A:emacs --daemon:}" (emacs) "%{A} " "%{A: systemctl poweroff:}" (poweroff) " %{A}%{F-}%{B-}\n"))
+  (display (string-append
+	    "%{c}%{F#899BA6}%{B#C03C4C55} " (clock) " " (ssid) " " (wifi)
+	    " %{A:emacs --daemon:}" (emacs) "%{A} " "%{A: systemctl poweroff:}" (poweroff) " %{A}%{F-}%{B-}\n"))
   (thread-sleep! 1)
   (main))
 
