@@ -24,3 +24,10 @@ urxvt*color0: #3C4C55
 ! Below stolen from StackOverflow https://unix.stackexchange.com/questions/294337/rebinding-ctrl-alt-cv-to-ctrl-shift-cv-in-urxvt-9-20/294552#294552
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+! Set hinting, taken from  https://stackoverflow.com/questions/22710964/emacs24-not-rendering-fonts-properly
+Xft.antialias:  1
+Xft.hinting:    1
+Xft.hintstyle:  hintfull
+Xft.lcdfilter:  lcddefault
+Xft.rgba:       rgb

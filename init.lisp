@@ -29,6 +29,5 @@
 ;; Load miscellaneous keybindings
 (load "/home/jacob/.stumpwm.d/keybindings.lisp")
 
-
 ;; Do other initialization tasks
 (run-shell-command "/usr/bin/bash ~/.stumpwm.d/stumpinit.sh")

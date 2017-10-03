@@ -11,3 +11,4 @@ pushd /home/jacob/.stumpwm.d/ > /dev/null
 /home/jacob/.stumpwm.d/day-night-toggle.sh "INIT" & disown
 /usr/bin/emacs --daemon
 setxkbmap -option "caps:swapescape"
+offlineimap & disown

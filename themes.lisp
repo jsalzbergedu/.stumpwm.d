@@ -32,7 +32,7 @@
 ;; Thanks lepisma for your annotated init
 (setf *colors* (list "#3c4c55"      ; 0 black
                      "#d18ec2"      ; 1 red
-                     "#ff6a6a"      ; 2 green
+                     "#a8ce93"      ; 2 green
                      "#dada93"      ; 3 yellow
                      "#83afe5"      ; 4 blue
                      "#7fc1ca"      ; 6 cyan
@@ -42,5 +42,12 @@
 (set-fg-color "#899ba6")
 (set-bg-color "#3c4c55")
 (set-border-color "#3c4c55")
+
 ;; Set up frames
-(restore-from-file "~/.stumpwm.d/data/framedefault")
+(restore-from-file "~/.stumpwm.d/data/framedump")
+;(define-frame-preference "Default" (0 t nil nil nil :class "Emacs" :title "#scheme"))
+;(define-frame-preference "Default" (0 t nil nil nil :class "Emacs" :title "#rust"))
+;(define-frame-preference "Default" (0 t nil nil nil :class "Emacs" :title "#rust-beginners"))
+;(define-frame-preference "Default" (0 t nil nil nil :class "Emacs" :title "#stratis-storage"))
+;(define-frame-preference "Default" (0 t nil nil nil :class "Emacs" :title "irc.mozilla.org:6667"))
+;(define-frame-preference "Default" (0 t nil nil nil :class "Emacs" :title "irc.freenode.org:6667"))

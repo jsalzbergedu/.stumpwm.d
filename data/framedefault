@@ -1,8 +1,114 @@
+;;#S(DDUMP
+;;   :SCREENS (#S(SDUMP
+;;                :NUMBER 0
+;;                :GROUPS (#S(GDUMP
+;;                            :NUMBER -1
+;;                            :NAME "multitask"
+;;                            :TREE (((#S(FDUMP
+;;                                        :NUMBER 0
+;;                                        :X 24
+;;                                        :Y 24
+;;                                        :WIDTH 936
+;;                                        :HEIGHT 766
+;;                                        :WINDOWS NIL
+;;                                        :CURRENT NIL)
+;;                                     #S(FDUMP
+;;                                        :NUMBER 2
+;;                                        :X 960
+;;                                        :Y 24
+;;                                        :WIDTH 936
+;;                                        :HEIGHT 766
+;;                                        :WINDOWS NIL
+;;                                        :CURRENT NIL))
+;;                                    #S(FDUMP
+;;                                       :NUMBER 1
+;;                                       :X 24
+;;                                       :Y 790
+;;                                       :WIDTH 1872
+;;                                       :HEIGHT 266
+;;                                       :WINDOWS NIL
+;;                                       :CURRENT NIL)))
+;;                            :CURRENT 2)
+;;                         #S(GDUMP
+;;                            :NUMBER 1
+;;                            :NAME "emacsandterm"
+;;                            :TREE ((#S(FDUMP
+;;                                       :NUMBER 0
+;;                                       :X 24
+;;                                       :Y 24
+;;                                       :WIDTH 1872
+;;                                       :HEIGHT 746
+;;                                       :WINDOWS (8388668)
+;;                                       :CURRENT 8388668)
+;;                                    #S(FDUMP
+;;                                       :NUMBER 1
+;;                                       :X 24
+;;                                       :Y 770
+;;                                       :WIDTH 1872
+;;                                       :HEIGHT 286
+;;                                       :WINDOWS (8388803)
+;;                                       :CURRENT 8388803)))
+;;                            :CURRENT 0)
+;;                         #S(GDUMP
+;;                            :NUMBER 2
+;;                            :NAME "main"
+;;                            :TREE (((#S(FDUMP
+;;                                        :NUMBER 0
+;;                                        :X 24
+;;                                        :Y 24
+;;                                        :WIDTH 936
+;;                                        :HEIGHT 766
+;;                                        :WINDOWS (12582928)
+;;                                        :CURRENT 12582928)
+;;                                     #S(FDUMP
+;;                                        :NUMBER 2
+;;                                        :X 960
+;;                                        :Y 24
+;;                                        :WIDTH 936
+;;                                        :HEIGHT 766
+;;                                        :WINDOWS (8388617)
+;;                                        :CURRENT 8388617))
+;;                                    #S(FDUMP
+;;                                       :NUMBER 1
+;;                                       :X 24
+;;                                       :Y 790
+;;                                       :WIDTH 1872
+;;                                       :HEIGHT 266
+;;                                       :WINDOWS (8388825)
+;;                                       :CURRENT 8388825)))
+;;                            :CURRENT 2)
+;;                         #S(GDUMP
+;;                            :NUMBER 3
+;;                            :NAME "onewindow"
+;;                            :TREE (#S(FDUMP
+;;                                      :NUMBER 0
+;;                                      :X 24
+;;                                      :Y 24
+;;                                      :WIDTH 1872
+;;                                      :HEIGHT 1032
+;;                                      :WINDOWS NIL
+;;                                      :CURRENT NIL))
+;;                            :CURRENT 0))
+;;                :CURRENT 2))
+;;   :CURRENT 0)
+
 #S(DDUMP
    :SCREENS (#S(SDUMP
                 :NUMBER 0
                 :GROUPS (#S(GDUMP
-                            :NUMBER -1
+                            :NUMBER 1
+                            :NAME "Default"
+                            :TREE (#S(FDUMP
+                                      :NUMBER 0
+                                      :X 24
+                                      :Y 24
+                                      :WIDTH 1872
+                                      :HEIGHT 1032
+                                      :WINDOWS (12602788)
+                                      :CURRENT 12602788))
+                            :CURRENT 0)
+                         #S(GDUMP
+                            :NUMBER 2
                             :NAME "multitask"
                             :TREE (((#S(FDUMP
                                         :NUMBER 0
@@ -10,27 +116,27 @@
                                         :Y 24
                                         :WIDTH 936
                                         :HEIGHT 766
-                                        :WINDOWS NIL
-                                        :CURRENT NIL)
+                                        :WINDOWS (12603186)
+                                        :CURRENT 12603186)
                                      #S(FDUMP
                                         :NUMBER 2
                                         :X 960
                                         :Y 24
                                         :WIDTH 936
                                         :HEIGHT 766
-                                        :WINDOWS NIL
-                                        :CURRENT NIL))
+                                        :WINDOWS (12603546)
+                                        :CURRENT 12603546))
                                     #S(FDUMP
                                        :NUMBER 1
                                        :X 24
                                        :Y 790
                                        :WIDTH 1872
                                        :HEIGHT 266
-                                       :WINDOWS NIL
-                                       :CURRENT NIL)))
-                            :CURRENT 2)
+                                       :WINDOWS (12603956)
+                                       :CURRENT 12603956)))
+                            :CURRENT 1)
                          #S(GDUMP
-                            :NUMBER 1
+                            :NUMBER 3
                             :NAME "emacsandterm"
                             :TREE ((#S(FDUMP
                                        :NUMBER 0
@@ -38,47 +144,39 @@
                                        :Y 24
                                        :WIDTH 1872
                                        :HEIGHT 746
-                                       :WINDOWS (8388668)
-                                       :CURRENT 8388668)
+                                       :WINDOWS (12605219)
+                                       :CURRENT 12605219)
                                     #S(FDUMP
                                        :NUMBER 1
                                        :X 24
                                        :Y 770
                                        :WIDTH 1872
                                        :HEIGHT 286
-                                       :WINDOWS (8388803)
-                                       :CURRENT 8388803)))
-                            :CURRENT 0)
+                                       :WINDOWS (12605625)
+                                       :CURRENT 12605625)))
+                            :CURRENT 1)
                          #S(GDUMP
-                            :NUMBER 2
+                            :NUMBER 4
                             :NAME "main"
-                            :TREE (((#S(FDUMP
-                                        :NUMBER 0
-                                        :X 24
-                                        :Y 24
-                                        :WIDTH 936
-                                        :HEIGHT 766
-                                        :WINDOWS (12582928)
-                                        :CURRENT 12582928)
-                                     #S(FDUMP
-                                        :NUMBER 2
-                                        :X 960
-                                        :Y 24
-                                        :WIDTH 936
-                                        :HEIGHT 766
-                                        :WINDOWS (8388617)
-                                        :CURRENT 8388617))
+                            :TREE ((#S(FDUMP
+                                       :NUMBER 0
+                                       :X 24
+                                       :Y 24
+                                       :WIDTH 936
+                                       :HEIGHT 1032
+                                       :WINDOWS (12604382)
+                                       :CURRENT 12604382)
                                     #S(FDUMP
                                        :NUMBER 1
-                                       :X 24
-                                       :Y 790
-                                       :WIDTH 1872
-                                       :HEIGHT 266
-                                       :WINDOWS (8388825)
-                                       :CURRENT 8388825)))
-                            :CURRENT 2)
+                                       :X 960
+                                       :Y 24
+                                       :WIDTH 936
+                                       :HEIGHT 1032
+                                       :WINDOWS (12604751)
+                                       :CURRENT 12604751)))
+                            :CURRENT 1)
                          #S(GDUMP
-                            :NUMBER 3
+                            :NUMBER 5
                             :NAME "onewindow"
                             :TREE (#S(FDUMP
                                       :NUMBER 0
@@ -86,8 +184,8 @@
                                       :Y 24
                                       :WIDTH 1872
                                       :HEIGHT 1032
-                                      :WINDOWS NIL
-                                      :CURRENT NIL))
+                                      :WINDOWS (12602273 20971536 8388908)
+                                      :CURRENT 12602273))
                             :CURRENT 0))
-                :CURRENT 2))
+                :CURRENT 5))
    :CURRENT 0)
