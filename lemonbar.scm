@@ -30,29 +30,30 @@
   (if (= 0 (system process))
       #t #f))
 
-(define (wifi-str)
-  (cond ((check-process "iw wlp4s0 link > /dev/null 2>&1")
-	 (cons (getinput "./wifi_str.sh" '("wlp4s0")) #t)); return (wifi str . #t) of wlp4s0
-	((check-process "iw wlan0 link > /dev/null 2>&1")
-	 (cons (getinput "./wifi_str.sh" '("wlan0")) #t))
-	(else
-	 '(0 . #f)))) 
+(define (wifi-str-maybe)
+  (lambda (some none)
+    (cond ((check-process "iw wlp4s0 link > /dev/null 2>&1")
+	   (some (getinput "./wifi_str.sh" '("wlp4s0"))))
+	  ((check-process "iw wlan0 link > /dev/null 2>&1")
+	   (some (getinput "./wifi_str.sh" '("wlan0"))))
+	  (else (none)))))
 
 (define (wifi)
-  (let* ((str (wifi-str)) (strn (car (wifi-str))) (strt (cdr (wifi-str))))
-    (if (and strt (number? strn))
-	(cond ((>= strn -55)
-	       (icon "wifi-max"))
-	      ((and (< strn -55) (>= strn -75))
-	       (icon "wifi-mid"))
-	      (else
-	       (icon "wifi-min")))
-	" ")))
+  ((wifi-str-maybe)
+   (lambda (strn) (if (number? strn)
+		 (cond ((>= strn -55)
+			(icon "wifi-max"))
+		       ((and (< strn -55) (>= strn -75))
+			(icon "wifi-mid"))
+		       (else
+			(icon "wifi-min")))
+		 " "))
+   (lambda () " ")))
 
 (define (ssid-maybe)
   (lambda (some none)
     (cond ((check-process "iw wlp4s0 link > /dev/null 2>&1")
-	   (some (getinput "./network.sh" '("wlp4s0")))); return (wifi str . #t) of wlp4s0
+	   (some (getinput "./network.sh" '("wlp4s0"))))
 	  ((check-process "iw wlan0 link > /dev/null 2>&1")
 	   (some (getinput "./network.sh" '("wlan0"))))
 	  (else (none)))))
