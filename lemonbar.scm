@@ -49,19 +49,18 @@
 	       (icon "wifi-min")))
 	" ")))
 
-(define (ssid-pred)
-  (cond ((check-process "iw wlp4s0 link > /dev/null 2>&1")
-	 (cons (getinput "./network.sh" '("wlp4s0")) #t)); return (wifi str . #t) of wlp4s0
-	((check-process "iw wlan0 link > /dev/null 2>&1")
-	 (cons (getinput "./network.sh" '("wlan0")) #t))
-	(else
-	 '(0 . #f)))) 
+(define (ssid-maybe)
+  (lambda (some none)
+    (cond ((check-process "iw wlp4s0 link > /dev/null 2>&1")
+	   (some (getinput "./network.sh" '("wlp4s0")))); return (wifi str . #t) of wlp4s0
+	  ((check-process "iw wlan0 link > /dev/null 2>&1")
+	   (some (getinput "./network.sh" '("wlan0"))))
+	  (else (none)))))
 
 (define (ssid)
-  (let* ((ssid (ssid-pred)) (ssids (car (ssid-pred))) (ssidt (cdr (ssid-pred))))
-    (if (and ssidt (string? ssids))
-	ssids
-	" ")))
+  ((ssid-maybe)
+   (lambda (s) (if (string? s) s " "))
+   (lambda () " ")))
 
 (define (poweroff)
   (icon "poweroff"))
