@@ -8,7 +8,8 @@ pushd /home/jacob/.stumpwm.d/ > /dev/null
 # # This is a hack that assumes the first window is stumpwm's messages. Be careful!
 # MESSAGE_WINDOW=$(xwininfo -root -children | grep -m 3 "(has no name)" | tail -n 1 | sed "s/(has no name).\+//" | sed "s/\s\+//")
 # compton-trans -w $MESSAGE_WINDOW -o 90
-/home/jacob/.stumpwm.d/day-night-toggle.sh "INIT" & disown
+# /home/jacob/.stumpwm.d/day-night-toggle.sh "INIT" & disown
+/home/jacob/.stumpwm.d/day-night-toggle & disown
 /usr/bin/emacs --daemon
 setxkbmap -option "caps:swapescape"
 offlineimap & disown
