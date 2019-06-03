@@ -9,11 +9,12 @@ url="https://github.com/jsalzbergedu/.stumpwm.d"
 license=('MIT')
 depends=()     # TODO
 makedepends=() # TODO
-source=("git+https://gitlab.com/jsalzbergedu/.stumpwm.d")
+source=("git+https://github.com/jsalzbergedu/.stumpwm.d.git")
 sha256sums=('SKIP')
 
 package() {
     cd .stumpwm.d
     mkdir -p "$pkgdir/usr/bin/"
-    cp startstump.sh "$pkgdir/usr/bin/"
+    cp startstump.sh "$pkgdir/usr/bin/startstump"
+    cp stumpwm.desktop "$pkgdir/usr/share/xsessions/"
 }

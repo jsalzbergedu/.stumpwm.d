@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=XSession
+Exec=/usr/bin/startstump
+TryExec=/usr/bin/startstump
+DesktopNames=StumpWM
+Name=StumpWM
+Comment=Stump Window Manager
