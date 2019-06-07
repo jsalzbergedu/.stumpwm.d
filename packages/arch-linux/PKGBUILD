@@ -9,8 +9,16 @@ url="https://github.com/jsalzbergedu/.stumpwm.d"
 license=('MIT')
 depends=()     # TODO
 makedepends=() # TODO
-source=("git+https://github.com/jsalzbergedu/.stumpwm.d.git")
-sha256sums=('SKIP')
+source=("git+https://github.com/jsalzbergedu/.stumpwm.d.git"
+        "git+https://github.com/jsalzbergedu/stumpwm-contrib.git")
+sha256sums=('SKIP' 'SKIP')
+
+prepare() {
+    cd .stumpwm.d
+    git submodule init
+    git config submodule.stumpwm-contrib.url "$srcdir/stumpwm-contrib"
+    git submodule update
+}
 
 package() {
     cd .stumpwm.d
@@ -18,4 +26,5 @@ package() {
     cp startstump.sh "$pkgdir/usr/bin/startstump"
     mkdir -p "$pkgdir/usr/share/xsessions/"
     cp stumpwm.desktop "$pkgdir/usr/share/xsessions/"
+    cp stumpwm-contrib/util/stumpish/stumpish "$pkgdir/usr/bin/"
 }

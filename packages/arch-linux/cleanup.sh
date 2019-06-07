@@ -1,7 +1,10 @@
-for file in *
+for file in .* *
 do
-    if [ -f "$file" ] && [ "$file" != "PKGBUILD" ] && [ "$file" != "cleanup.sh" ]
+    if [ -f "$file" ] || [ -d "$file" ]
     then
-        rm "$file"
+        if [ "$file" != "PKGBUILD" ] && [ "$file" != "cleanup.sh" ] && [ "$file" != "." ] && [ "$file" != ".." ]
+        then
+            rm -rf "$file"
+        fi
     fi
 done
