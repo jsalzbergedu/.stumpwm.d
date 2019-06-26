@@ -1,0 +1,8 @@
+" -*- mode: vimrc -*-
+
+unbind <Space>
+
+bind <Space>h !s stumpish move-focus left
+bind <Space>l !s stumpish move-focus right
+bind <Space>j !s stumpish move-focus down
+bind <Space>k !s stumpish move-focus up
