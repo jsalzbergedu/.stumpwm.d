@@ -24,8 +24,8 @@ package() {
     cd .stumpwm.d
     mkdir -p "$pkgdir/usr/bin/"
     cp startstump.sh "$pkgdir/usr/bin/startstump"
-    mkdir -p "$pkdir/etc/xdg/"
-    cp compton.conf "$pkgdir/etc/xdg/compton.conf"
+    mkdir -p "$pkgdir/etc/xdg/"
+    cp compton.conf "$pkgdir/etc/xdg/"
     mkdir -p "$pkgdir/usr/share/xsessions/"
     cp stumpwm.desktop "$pkgdir/usr/share/xsessions/"
     cp stumpwm-contrib/util/stumpish/stumpish "$pkgdir/usr/bin/"
